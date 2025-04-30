@@ -1,0 +1,49 @@
+body {
+    text-align: center;
+    font-family: sans-serif;
+    background-color: grey;
+
+}
+
+.loginlink,
+.registerlink {
+    color: #04be7a;
+    font-size: 20px;
+}
+
+h1 {
+    color: white;
+}
+
+table {
+    margin-left: auto;
+    margin-right: auto;
+    border-collapse: separate;
+    border: solid black 3px;
+    border-radius: 10px;
+    width: 40%;
+}
+
+td,
+th {
+    border-left: solid black 3px;
+    border-top: solid black 3px;
+    background-color: white;
+}
+
+th {
+    background-color: #04be7a;
+    height: 40px;
+    color: white;
+    border-top: none;
+    font-size: 25px;
+}
+
+td:first-child,
+th:first-child {
+    border-left: none;
+}
+
+.ins {
+    padding: 10px;
+}

@@ -1,0 +1,43 @@
+{% extends 'base.html' %} 
+
+{% block head %} 
+<title>To-Do</title>
+{% endblock %} 
+
+{% block body %}
+<div class="content" style="overflow-x: auto;">
+  <h1 style="text-align:center">Todo List</h1>
+  {% if tasks|length<1 %}
+  <h4 style="text-align:center">There are no tasks. Create one below!</h4>
+  {% else %}
+  <table>
+    <tr>
+      <th>Task</th>
+      <th>Added On</th>
+      <th>Status</th>
+      <th>Actions</th>
+    </tr>
+    {% for task in tasks %}
+        <tr>
+        <td>{{ task.content }}</td>
+        <td>{{ task.date_created.date() }}</td>
+        <td>{{ task.status }}</td>
+        <td>
+            <a href="/update/{{task.id}}" style="color: rgb(73, 72, 72);">Update</a>
+            <br>
+            <a href="/complete/{{task.id}}" style="color: #04be7a;">Complete</a>
+            <br />
+            <a href="/delete/{{task.id}}" style="color: red;">Delete</a>
+        </td>
+        </tr>
+    {% endfor %}
+  </table>
+  {% endif %}
+  <form action="{{url_for('index')}}" method="POST" class="ins">
+    <input type="text" name="content" id="content" size="30" required> 
+    <input type="submit" value="Add Text">
+  </form>
+  <p style="color: red;"><b>NOTE:- This is just a test website so please DON'T add any important or private information in here</b></p>
+  <a href="{{ url_for('logout') }}">Press here to logout</a>
+</div>
+{% endblock %}
